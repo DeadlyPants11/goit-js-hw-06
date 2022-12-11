@@ -16,15 +16,8 @@ const images = [
 const gallerys = document.querySelector(".gallery");
 let arrayGalery = [];
 images.forEach((image) => {
-  // const content = `<li><img class = "js-img" src="${image.url}" alt="${image.alt}"></li>`;
-
-  let listItem = document.createElement("li");
-  let imgItem = document.createElement("img");
-  imgItem.setAttribute("src", image.url);
-  imgItem.setAttribute("alt", image.alt);
-  imgItem.classList.add('js-img');
-  listItem.append(imgItem);
-  arrayGalery.push(listItem);
+  const content = `<li><img class = "js-img" src="${image.url}" alt="${image.alt}"></li>`;
+  arrayGalery.push(content);
 });
 
-gallerys.append(...arrayGalery);
+gallerys.insertAdjacentHTML('afterend', arrayGalery.join(''));
